@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Textfit } from 'react-textfit';
 import Theme from '../modules/Theme';
 
-const Quote = ({ quote, highlight }) => {
-  const quoteChunks = quote.split(highlight);
+const Quote = ({ children, highlight }) => {
+  const quoteChunks = children.split(highlight);
 
   return (
     <div style={{ margin: '100px', fontSize: '100px', color: Theme.color.secondary }}>
@@ -20,7 +20,7 @@ const Quote = ({ quote, highlight }) => {
 };
 
 Quote.propTypes = {
-  quote: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
   highlight: PropTypes.string.isRequired,
 };
 

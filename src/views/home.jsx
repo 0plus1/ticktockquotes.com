@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import AppLayout from './layouts/AppLayout';
 import quotesJson from '../quotes.json';
-import Theme from '../modules/Theme';
 import Quote from '../components/Quote';
 import Author from '../components/Author';
 
@@ -10,9 +9,9 @@ const homeComponentStyle = {
   position: 'absolute',
   top: 0,
   left: 0,
-  height: '100%',
+  height: '50%',
   width: '100%',
-  backgroundColor: Theme.color.primary,
+  fontSize: '2rem',
 };
 
 class HomeView extends Component {
@@ -35,7 +34,7 @@ class HomeView extends Component {
     const quotesForCurrentTime = quotesJson[index];
     // Sadly not all hours have a quote, in case it's undefined we refer to a default one
     if (quotesForCurrentTime === undefined) {
-      return [`It's ${index}`, `How did it get so late so soon? (It's ${index})`, '', 'Dr. Seuss'];
+      return [`It's ${index}`, `How did it get so late so soon? (It's ${index})`, 'Poem', 'Dr. Seuss'];
     }
     // We get a random quote for that specific time
     // Note: most times have a single quote in them
@@ -67,7 +66,9 @@ class HomeView extends Component {
     const [highlight, quote, publication, author] = quoteArray;
     return (
       <div style={homeComponentStyle}>
-        <Quote highlight={highlight} quote={quote} />
+        <Quote highlight={highlight}>
+          {quote}
+        </Quote>
         <Author author={author} publication={publication} />
       </div>
     );

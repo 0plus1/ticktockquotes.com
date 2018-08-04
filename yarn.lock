@@ -6906,6 +6906,10 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
+typeface-inconsolata@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/typeface-inconsolata/-/typeface-inconsolata-0.0.54.tgz#9a7f7726eb615a3ab53dc19732f6c77adc65d5b5"
+
 ua-parser-js@^0.7.18:
   version "0.7.18"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.18.tgz#a7bfd92f56edfb117083b69e31d2aa8882d4b1ed"

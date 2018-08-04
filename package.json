@@ -8,7 +8,8 @@
     "react-dom": "^16.4.2",
     "react-scripts": "1.1.4",
     "react-textfit": "^1.1.0",
-    "sanitize.css": "^6.0.0"
+    "sanitize.css": "^6.0.0",
+    "typeface-inconsolata": "^0.0.54"
   },
   "scripts": {
     "start": "react-scripts start",
