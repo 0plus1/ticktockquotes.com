@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './views/home';
+import Home from './views/Home';
 import registerServiceWorker from './registerServiceWorker';
 
 // eslint-disable-next-line react/jsx-filename-extension
