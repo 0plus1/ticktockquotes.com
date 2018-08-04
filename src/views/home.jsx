@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
+
 import AppLayout from './layouts/AppLayout';
 import quotesJson from '../quotes.json';
-
+import Theme from '../modules/Theme';
 import Quote from '../components/Quote';
+import Author from '../components/Author';
+
+const homeComponentStyle = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  height: '100%',
+  width: '100%',
+  backgroundColor: Theme.color.primary,
+};
 
 class HomeView extends Component {
   static hasMinuteStarted(date) {
@@ -53,7 +64,13 @@ class HomeView extends Component {
 
   render() {
     const { quoteArray } = this.state;
-    return <Quote quoteArray={quoteArray} />;
+    const [highlight, quote, publication, author] = quoteArray;
+    return (
+      <div style={homeComponentStyle}>
+        <Quote highlight={highlight} quote={quote} />
+        <Author author={author} publication={publication} />
+      </div>
+    );
   }
 }
 
