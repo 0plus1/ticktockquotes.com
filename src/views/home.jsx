@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
 import AppLayout from './layouts/AppLayout';
-import quotesJson from '../quotes.json';
 import Quote from '../components/Quote';
 import Author from '../components/Author';
+
+import quotesJson from '../quotes.json';
+import PaddedDate from '../modules/PaddedDate';
 
 const homeComponentStyle = {
   position: 'absolute',
@@ -20,16 +22,7 @@ class HomeView extends Component {
   }
 
   static readQuoteForCurrentTime(date) {
-    // Our json indexes are 0 padded, we need to normalise getMinutes and getHours
-    let minutes = date.getMinutes();
-    if (minutes < 10) {
-      minutes = `0${minutes}`;
-    }
-    let hours = date.getHours();
-    if (hours < 10) {
-      hours = `0${hours}`;
-    }
-    const index = `${hours}:${minutes}`;
+    const index = `${date.getHours()}:${date.getMinutes()}`;
 
     const quotesForCurrentTime = quotesJson[index];
     // Sadly not all hours have a quote, in case it's undefined we refer to a default one
@@ -47,7 +40,7 @@ class HomeView extends Component {
 
   componentDidMount() {
     this.tickTimer = setInterval(() => {
-      const date = new Date();
+      const date = new PaddedDate();
       if (HomeView.hasMinuteStarted(date)) {
         this.setState({ quoteArray: HomeView.readQuoteForCurrentTime(date) });
       }
