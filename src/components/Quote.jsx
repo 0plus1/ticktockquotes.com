@@ -3,11 +3,17 @@ import PropTypes from 'prop-types';
 import { Textfit } from 'react-textfit';
 import Theme from '../modules/Theme';
 
+const QuoteStyle = {
+  margin: '10%',
+  fontSize: '3rem',
+  color: Theme.color.secondary,
+}
+
 const Quote = ({ children, highlight }) => {
   const quoteChunks = children.split(highlight);
 
   return (
-    <div style={{ margin: '100px', fontSize: '100px', color: Theme.color.secondary }}>
+    <div style={QuoteStyle}>
       <Textfit mode="multi">
         {quoteChunks[0]}
         <strong style={{ color: Theme.color.highlight }}>
