@@ -19,7 +19,7 @@ const homeComponentStyle = {
 
 class HomeView extends Component {
   static hasMinuteStarted(date) {
-    return (date.getSeconds() === 0);
+    return (date.getSeconds() === '00');
   }
 
   static readQuoteForCurrentTime(date) {
