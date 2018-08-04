@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Textfit } from 'react-textfit';
 import Theme from '../modules/Theme';
 
 const authorComponentStyle = {
-  margin: '10%',
   fontSize: '2rem',
+  height: '40px',
+  marginTop: '10px',
+  width: 'auto',
   color: Theme.color.author,
 };
 
 const Author = ({ author, publication }) => (
   <div style={authorComponentStyle}>
-    <p>
+    <Textfit mode="multi">
       {// eslint-disable-next-line react/jsx-one-expression-per-line
       }― {author} in <i>{publication}</i>
-    </p>
+    </Textfit>
   </div>
 );
 

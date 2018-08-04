@@ -4,9 +4,11 @@ import { Textfit } from 'react-textfit';
 import Theme from '../modules/Theme';
 
 const QuoteStyle = {
-  margin: '10%',
   fontSize: '3rem',
   color: Theme.color.secondary,
+  height: '50%',
+  marginTop: '10px',
+  width: 'auto',
 }
 
 const Quote = ({ children, highlight }) => {

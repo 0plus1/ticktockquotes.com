@@ -9,12 +9,7 @@ import quotesJson from '../quotes.json';
 import PaddedDate from '../modules/PaddedDate';
 
 const homeComponentStyle = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  height: '50%',
-  width: '100%',
-  fontSize: '2rem',
+  margin: '10%',
 };
 
 class HomeView extends Component {
