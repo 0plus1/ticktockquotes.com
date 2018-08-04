@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import AppLayout from './layouts/AppLayout';
 import Quote from '../components/Quote';
 import Author from '../components/Author';
+import Clock from '../components/Clock';
 
 import quotesJson from '../quotes.json';
 import PaddedDate from '../modules/PaddedDate';
@@ -36,11 +37,13 @@ class HomeView extends Component {
 
   state = {
     quoteArray: ['', '', '', ''],
+    date: new PaddedDate(),
   }
 
   componentDidMount() {
     this.tickTimer = setInterval(() => {
       const date = new PaddedDate();
+      this.setState({ date });
       if (HomeView.hasMinuteStarted(date)) {
         this.setState({ quoteArray: HomeView.readQuoteForCurrentTime(date) });
       }
@@ -55,10 +58,11 @@ class HomeView extends Component {
   }
 
   render() {
-    const { quoteArray } = this.state;
+    const { quoteArray, date } = this.state;
     const [highlight, quote, publication, author] = quoteArray;
     return (
       <div style={homeComponentStyle}>
+        <Clock date={date} />
         <Quote highlight={highlight}>
           {quote}
         </Quote>
