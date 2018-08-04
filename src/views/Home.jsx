@@ -48,7 +48,7 @@ class HomeView extends Component {
         this.setState({ quoteArray: HomeView.readQuoteForCurrentTime(date) });
       }
     }, 1000);
-    this.setState({ quoteArray: HomeView.readQuoteForCurrentTime(new Date()) });
+    this.setState({ quoteArray: HomeView.readQuoteForCurrentTime(new PaddedDate()) });
   }
 
   componentWillUnmount() {
