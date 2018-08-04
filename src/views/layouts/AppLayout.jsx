@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Footer from '../../components/Footer';
 import Theme from '../../modules/Theme';
 
 import 'sanitize.css';
@@ -16,6 +17,7 @@ export default function AppLayout(WrappedComponent) {
       return (
         <div>
           <WrappedComponent {...this.state} {...this.props} />
+          <Footer />
         </div>
       );
     }
