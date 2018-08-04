@@ -61,12 +61,14 @@ class HomeView extends Component {
     const { quoteArray, date } = this.state;
     const [highlight, quote, publication, author] = quoteArray;
     return (
-      <div style={homeComponentStyle}>
+      <div>
         <Clock date={date} />
-        <Quote highlight={highlight}>
-          {quote}
-        </Quote>
-        <Author author={author} publication={publication} />
+        <div style={homeComponentStyle}>
+          <Quote highlight={highlight}>
+            {quote}
+          </Quote>
+          <Author author={author} publication={publication} />
+        </div>
       </div>
     );
   }
