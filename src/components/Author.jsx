@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Theme from '../modules/Theme';
 
 const authorComponentStyle = {
-  margin: '100px',
+  margin: '10%',
   fontSize: '2rem',
   color: Theme.color.author,
 };
