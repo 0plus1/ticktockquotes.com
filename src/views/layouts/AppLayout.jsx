@@ -10,7 +10,7 @@ export default function AppLayout(WrappedComponent) {
     componentDidMount() {
       document.body.style.backgroundColor = Theme.color.primary;
       document.body.style.fontFamily = '\'Inconsolata\', monospace';
-      document.body.style.fontSizee = '62.5%';
+      document.body.style.fontSize = 'calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) )';
     }
 
     render() {

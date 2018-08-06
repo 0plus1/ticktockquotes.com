@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Textfit } from 'react-textfit';
 import Theme from '../modules/Theme';
 
 const authorComponentStyle = {
@@ -13,10 +12,10 @@ const authorComponentStyle = {
 
 const Author = ({ author, publication }) => (
   <div style={authorComponentStyle}>
-    <Textfit mode="multi">
+    <p>
       {// eslint-disable-next-line react/jsx-one-expression-per-line
       }― {author} in <i>{publication}</i>
-    </Textfit>
+    </p>
   </div>
 );
 
