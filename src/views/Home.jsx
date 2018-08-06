@@ -7,6 +7,8 @@ import Author from '../components/Author';
 import quotesJson from '../quotes.json';
 import PaddedDate from '../modules/PaddedDate';
 
+import themeShape from '../shapes';
+
 const homeComponentStyle = {
   margin: '10%',
 };
@@ -31,13 +33,11 @@ class HomeView extends Component {
 
   state = {
     quoteArray: ['', '', '', ''],
-    date: new PaddedDate(),
   }
 
   componentDidMount() {
     this.tickTimer = setInterval(() => {
       const date = new PaddedDate();
-      this.setState({ date });
       if (HomeView.hasMinuteStarted(date)) {
         this.setState({ quoteArray: HomeView.readQuoteForCurrentTime(date) });
       }
@@ -53,17 +53,23 @@ class HomeView extends Component {
 
   render() {
     const { quoteArray } = this.state;
+    const { theme } = this.props;
     const [highlight, quote, publication, author] = quoteArray;
+
     return (
       <div style={homeComponentStyle}>
-        <Quote highlight={highlight}>
+        <Quote highlight={highlight} theme={theme}>
           {quote}
         </Quote>
-        <Author author={author} publication={publication} />
+        <Author author={author} publication={publication} theme={theme} />
       </div>
     );
   }
 }
+
+HomeView.propTypes = {
+  theme: themeShape.isRequired,
+};
 
 const Home = AppLayout(HomeView);
 

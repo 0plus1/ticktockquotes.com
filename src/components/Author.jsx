@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Theme from '../modules/Theme';
+
+import themeShape from '../shapes';
 
 const authorComponentStyle = {
   fontSize: '2rem',
   height: '40px',
   marginTop: '10px',
   width: 'auto',
-  color: Theme.color.author,
 };
 
-const Author = ({ author, publication }) => (
-  <div style={authorComponentStyle}>
+const Author = ({ theme, author, publication }) => (
+  <div style={{ ...authorComponentStyle, ...{ color: theme.color.author } }}>
     <p>
       {// eslint-disable-next-line react/jsx-one-expression-per-line
       }― {author} in <i>{publication}</i>
@@ -21,6 +21,7 @@ const Author = ({ author, publication }) => (
 
 
 Author.propTypes = {
+  theme: themeShape.isRequired,
   author: PropTypes.string.isRequired,
   publication: PropTypes.string.isRequired,
 };
