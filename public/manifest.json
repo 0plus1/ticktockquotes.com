@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Tick Tock Clock",
+  "name": "Literary clock",
   "icons": [
     {
       "src": "favicon.ico",
