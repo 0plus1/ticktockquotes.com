@@ -34,6 +34,9 @@ for line in csvfile:
         exit()
     # Explicitly declare variables
     [time, highlight, quote, publication, author] = csv_line
+    # We clean up the triple and double quotes
+    quote = quote.replace('"""','"')
+    quote = quote.replace('""','"')
     # We need to check if the highlight actually matches text within the quote
     while highlight not in quote:
         if(first_lower(highlight) in quote):
