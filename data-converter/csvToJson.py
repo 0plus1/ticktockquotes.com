@@ -17,16 +17,38 @@ jsonfile = open('./../src/quotes.json', 'w')
 reportfile = open('./../report.md', 'w')
 
 quotesDictionary={}
+mismatching_highlights = []
+
+def first_lower(s):
+    if len(s) == 0:
+        return s
+    else:
+        return s[0].lower() + s[1:]
 
 for line in csvfile:
     # This "csv" file is split by |
     csv_line = line.rstrip().split('|')
     # List contains ['time','highlight','quote','publication','author']
-    time = csv_line[0]
+    if (len(csv_line) < 5):
+        print('Line mismatch, cannot continue {}'.format(csv_line))
+        exit()
+    # Explicitly declare variables
+    [time, highlight, quote, publication, author] = csv_line
+    # We need to check if the highlight actually matches text within the quote
+    while highlight not in quote:
+        if(first_lower(highlight) in quote):
+            highlight = first_lower(highlight)
+            break
+        elif(highlight.capitalize() in quote):
+            highlight = highlight.capitalize()
+            break
+        else:
+            mismatching_highlights.append([highlight, quote, publication, author])
+            break
+
     if time not in quotesDictionary:
         quotesDictionary[time] = []
-    csv_line.pop(0)
-    quotesDictionary[time].append(csv_line)
+    quotesDictionary[time].append([highlight, quote, publication, author])
 
 json.dump(quotesDictionary, jsonfile, indent=2, sort_keys=True)
 
