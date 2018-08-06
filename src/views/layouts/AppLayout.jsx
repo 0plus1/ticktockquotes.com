@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Footer from '../../components/Footer';
+import Clock from '../../components/Clock';
 import Theme from '../../modules/Theme';
 
 import 'sanitize.css';
@@ -16,6 +17,7 @@ export default function AppLayout(WrappedComponent) {
     render() {
       return (
         <div>
+          <Clock />
           <WrappedComponent {...this.state} {...this.props} />
           <Footer />
         </div>

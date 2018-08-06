@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import PaddedDate from '../modules/PaddedDate';
 
 const ClockStyle = {
@@ -11,20 +10,35 @@ const ClockStyle = {
   fontSize: '1rem',
 };
 
-const Footer = ({ date }) => {
-  const timestring = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-  return (
-    <div style={ClockStyle}>
-      <p>
-        { // eslint-disable-next-line react/jsx-one-expression-per-line
-        }It&apos;s {timestring} ({Intl.DateTimeFormat().resolvedOptions().timeZone})
-      </p>
-    </div>
-  );
-};
+class Clock extends Component {
+  state = {
+    date: new PaddedDate(),
+  }
 
-Footer.propTypes = {
-  date: PropTypes.instanceOf(PaddedDate).isRequired,
-};
+  componentDidMount() {
+    this.tickTimer = setInterval(() => {
+      this.setState({ date: new PaddedDate() });
+    }, 1000);
+  }
 
-export default Footer;
+  componentWillUnmount() {
+    if (this.tickTimer) {
+      clearInterval(this.tickTimer);
+    }
+  }
+
+  render() {
+    const { date } = this.state;
+    const timestring = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    return (
+      <div style={ClockStyle}>
+        <p>
+          { // eslint-disable-next-line react/jsx-one-expression-per-line
+          }It&apos;s {timestring} ({Intl.DateTimeFormat().resolvedOptions().timeZone})
+        </p>
+      </div>
+    );
+  }
+}
+
+export default Clock;

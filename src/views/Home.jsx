@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import AppLayout from './layouts/AppLayout';
 import Quote from '../components/Quote';
 import Author from '../components/Author';
-import Clock from '../components/Clock';
 
 import quotesJson from '../quotes.json';
 import PaddedDate from '../modules/PaddedDate';
@@ -53,17 +52,14 @@ class HomeView extends Component {
   }
 
   render() {
-    const { quoteArray, date } = this.state;
+    const { quoteArray } = this.state;
     const [highlight, quote, publication, author] = quoteArray;
     return (
-      <div>
-        <Clock date={date} />
-        <div style={homeComponentStyle}>
-          <Quote highlight={highlight}>
-            {quote}
-          </Quote>
-          <Author author={author} publication={publication} />
-        </div>
+      <div style={homeComponentStyle}>
+        <Quote highlight={highlight}>
+          {quote}
+        </Quote>
+        <Author author={author} publication={publication} />
       </div>
     );
   }
