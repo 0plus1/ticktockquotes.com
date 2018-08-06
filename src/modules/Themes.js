@@ -15,4 +15,12 @@ export default {
       author: '#f9ca24',
     },
   },
+  smoke: {
+    color: {
+      primary: '#ecf0f1',
+      secondary: '#95a5a6',
+      highlight: '#7f8c8d',
+      author: '#bdc3c7',
+    },
+  },
 };
