@@ -1,12 +1,11 @@
 import React from 'react';
 
 const FooterStyle = {
-  position: 'fixed',
-  bottom: 0,
-  right: '10px',
   width: '100%',
   textAlign: 'right',
   fontSize: '1rem',
+  paddingTop: '10px',
+  paddingRight: '10px'
 };
 
 const Footer = () => (
